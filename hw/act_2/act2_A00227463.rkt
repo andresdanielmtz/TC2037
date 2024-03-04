@@ -1,6 +1,7 @@
 #lang racket
 
 ; Ejercicio #1
+
 (define (fahrenheit-to-celsius f)
   (/ (* 5.0 (- f 32)) 9))
 
@@ -55,4 +56,3 @@
 (define (enlist lst)
     (map (lambda (x) (list x)) lst))
 
-(enlist '(a b c 1 2 3))
