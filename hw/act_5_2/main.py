@@ -3,7 +3,6 @@ import threading
 import math
 
 LIMIT = 5_000_000
-global_counter = 0
 
 
 def is_prime(n: int) -> bool:
@@ -26,7 +25,9 @@ def sequencial_method(n: int) -> None:
     print(f"Final result: {counter}")
 
 
-def parallel_method(lower_limit, upper_limit, result, index):
+def parallel_method(
+    lower_limit: int, upper_limit: int, result: list[int], index: int
+) -> None:
     counter = 0
     for i in range(lower_limit, upper_limit):
         if is_prime(i):
@@ -34,9 +35,7 @@ def parallel_method(lower_limit, upper_limit, result, index):
     result[index] = counter
 
 
-def parallel_general():
-
-    thread_num = 4
+def parallel_general() -> None:
     thread_ranges = [
         (0, 1_250_000),
         (1_250_000, 2_500_000),
@@ -48,7 +47,7 @@ def parallel_general():
     results = [0] * len(thread_ranges)
     start_time = time.process_time()
 
-    for i in range(thread_num):
+    for i in range(len(thread_ranges)):
         thread = threading.Thread(
             target=parallel_method,
             args=(thread_ranges[i][0], thread_ranges[i][1], results, i),
