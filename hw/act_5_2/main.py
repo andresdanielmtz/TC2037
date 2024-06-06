@@ -2,6 +2,17 @@ import time
 import threading
 import math
 
+"""
+
+Actividad 5.2
+Implementación de Métodos Computacionales 
+
+Prof. Baldomero Olvera Villanueva 
+
+Andrés Daniel Martínez Bermúdez - A00227463
+
+"""
+
 LIMIT = 5_000_000
 
 
